@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+{%block title%}
+Register
+<head>
+  <style>
+    body{background-color:grey;}
+  </style>
+</head>
+
+{% endblock%}
+
+{% block body %}
+<form action="{{url_for('registered')}}" method="post">
+
+  <br/>
+  Enter Username: <br/>
+  <input name="username" type="text">
+  <br/>
+  Enter Password: <br/>
+  <input name="password" type="password">
+  <br/>
+  Type Password again: <br/>
+  <input name="password2" type="password"<br/>
+  <input type="submit" value="Register">
+</form>
+
+{%endblock%}

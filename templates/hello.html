@@ -1,0 +1,40 @@
+<!---
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}
+-->
+
+<!doctype html>
+
+{%block title %}
+Buy
+{% endblock %}
+
+
+
+{% block body %}
+<!---
+<h1>Buy Shares</h1>
+<form action="{{url_for('settle')}}" method="post">
+  Name: <input name="name" type="text"/>
+  <br><br>
+  Apple:
+  <input name="AAPL" type="text"><br/>
+  Google:
+  <input name="GOOG" type="text"/><br/>
+  Facebook:
+  <input name="FB" type="text" /><br/>
+
+  <input type="submit" value="Purchase"/>
+</form>
+-->
+<h2>Dont't have an account? Sign up now</h2>
+<form action="{{url_for('register')}}">
+  <input type="submit" value="Register"/>
+</form>
+
+{%endblock%}

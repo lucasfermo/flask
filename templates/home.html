@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+<head>
+  <title>Home</title>
+  <style>
+    table,th,td {
+      padding:15px;
+      text-align:center;
+      border-collapse:collapse;
+    }
+    h1,h2,h3
+    {
+      width:300px;
+    }
+
+  </style>
+</head>
+
+{% block body %}
+
+<h1>HOME</h1>
+
+<h2>{{user}}</h2>
+<br/>
+<h3>${{cash}} Remaining</h3>
+
+<form style="width:300px;" action={{url_for('purchase')}} method="post">
+  Enter Stock Symbol:<br/>
+  <input name="symbol" type="text"/>
+  <br/>
+  Enter Quantity: <br/>
+  <input name="quantity" type="text"/>
+  <br/>
+  <input type="submit" name='submit' value="BUY">
+  <input type="submit" name='submit' value="QUOTE">
+  <input type="submit" name='submit' value="SELL">
+</form>
+
+
+{%if count==0 %}
+<h3>Total is ${{total}}</h3>
+{%endif%}
+{%if count==1 %}
+<h3>Price is ${{total}}</h3>
+{%elif count==-1%}
+<h3>Insufficient Funds</h3>
+{%endif%}
+<br/>
+<br/>
+<form style="width:300px;" action={{url_for('logout')}} >
+  <input type='submit' value="Log Out">
+</form>
+<br/><br/>
+<table style="position:absolute; left: 400px; top:50px; ">
+  <tr>
+    <th>Stock</th>
+    <th>Owned</th>
+  </tr>
+  {% for item in stockList%}
+  <tr style="border-top:3px solid black">
+    <td>{{item[0].upper()}}</td>
+    <td>{{item[1]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+
+{% endblock %}
